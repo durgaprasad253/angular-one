@@ -1,0 +1,23 @@
+
+<div>
+    <h1 id="heading">Open source projects to contribute</h1>
+    
+</div>
+<div id="insert">
+<table id="main-table">
+    <thead>
+        <tr>
+          
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of datalist">
+        <td>{{  data.Name}}</td>
+        <td>{{ data.Description }}</td>
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
