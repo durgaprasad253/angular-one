@@ -27,17 +27,8 @@ margin-left: 30px;
     margin-bottom: 0px;
   }
   
- #dev{
-     margin: 0px;
- }
+ 
   
-  @media screen and (max-width: 1000px) {
-    .column-66{
-      width: 100%;
-      text-align: center;
-    }
-    
-  }
 
   #quote{
       font-weight: bold;
