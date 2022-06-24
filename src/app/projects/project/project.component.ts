@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {data} from './data'
+import {data} from './data';
 interface DATA{
   Name:String;
   Description:String;
@@ -11,9 +11,9 @@ interface DATA{
 })
 export class ProjectComponent implements OnInit {
   datalist = data;
-  
+  constructor() { }
+
   ngOnInit(): void {
-    
   }
 
 }

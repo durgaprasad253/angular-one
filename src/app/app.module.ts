@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ProjectComponent } from './project/project.component';
+
 
 @NgModule({
   declarations: [
@@ -14,11 +14,10 @@ import { ProjectComponent } from './project/project.component';
     HeaderComponent,
     HomeComponent,
     ProfileComponent,
-    ProjectComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
