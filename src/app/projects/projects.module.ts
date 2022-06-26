@@ -5,13 +5,17 @@ import { ProjectRoutingModule } from './projects-routing.module';
 
 
 
+
+
 @NgModule({
   declarations: [
-    ProjectComponent
+    ProjectComponent,
+   
+    
   ],
   imports: [
     CommonModule,
-    ProjectRoutingModule
+    ProjectRoutingModule,
   ],
   exports:[ProjectComponent]
 })
