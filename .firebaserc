@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "bootcamp-67f7d"
+  },
+  "targets": {
+    "bootcamp-67f7d": {
+      "hosting": {
+        "my-first-app": [
+          "angular-app-8c"
+        ]
+      }
+    }
   }
 }
