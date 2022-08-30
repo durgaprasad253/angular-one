@@ -13,9 +13,12 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {}
 
   toggleLogin(): void {
-    console.log('[HeaderComponent] toggleLogin() - isLoggedIn:',this.auth.isLoggedIn);
+    console.log(
+      '[HeaderComponent] toggleLogin() - isLoggedIn:',
+      this.auth.isLoggedIn
+    );
     if (this.auth.isLoggedIn) {
-      this.auth.logout().then(()=>{
+      this.auth.logout().then(() => {
         this.router.navigate(['/login']);
       });
     } else {

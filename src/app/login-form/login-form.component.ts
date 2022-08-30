@@ -17,7 +17,7 @@ export class LoginFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.registerForm = this.fb.group({
+    this.registerForm= this.fb.group({
       email: new FormControl(''),
       password: new FormControl(''),
     });
@@ -32,7 +32,6 @@ export class LoginFormComponent implements OnInit {
       .catch((error) => {
         console.log('[LoginFormComponent]: login() -', error);
       });
-    // if(this.firebaseService.isLoggedIn)
-    // this.isSignedIn=true
+   
   }
 }

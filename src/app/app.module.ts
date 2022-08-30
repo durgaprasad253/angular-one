@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,7 +11,10 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { AngularFireModule } from '@angular/fire/compat'
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PhoneLoginComponent } from './phone-login/phone-login.component';
+import { CodePhoneLoginComponent } from './code-phone-login/code-phone-login.component';
+import { NgOtpInputModule } from 'ng-otp-input';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     LoginFormComponent,
     SignupFormComponent,
+    PhoneLoginComponent,
+    CodePhoneLoginComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     ReactiveFormsModule,
+    FormsModule,
+    NgOtpInputModule,
    
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),

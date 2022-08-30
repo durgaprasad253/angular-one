@@ -7,7 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 export class AuthService {
   isLoggedIn = false;
   constructor(public auth: AngularFireAuth) {}
-   signin(email: string, password: string) {
+  signin(email: string, password: string) {
     return this.auth.signInWithEmailAndPassword(email, password).then((res) => {
       this.isLoggedIn = true;
     });
@@ -23,6 +23,5 @@ export class AuthService {
   logout() {
     this.isLoggedIn = false;
     return this.auth.signOut();
-    
   }
 }
