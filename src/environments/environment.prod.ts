@@ -1,12 +1,12 @@
 export const environment = {
   firebase: {
-    projectId: 'bootcamp-67f7d',
-    appId: '1:679517069635:web:db2675b70e0a3f32000ff6',
-    storageBucket: 'bootcamp-67f7d.appspot.com',
-    apiKey: 'AIzaSyBfZ6yqTi4-XnzfW7CU46mtFSsUcZPVnN8',
-    authDomain: 'bootcamp-67f7d.firebaseapp.com',
-    messagingSenderId: '679517069635',
-    measurementId: 'G-9QZSF4H23Q',
+    apiKey: "AIzaSyDOoeYxyKcC1y7h1NvvYIqvLWkauTpcw1A",
+    authDomain: "bootcamp1-95ad7.firebaseapp.com",
+    projectId: "bootcamp1-95ad7",
+    storageBucket: "bootcamp1-95ad7.appspot.com",
+    messagingSenderId: "645502698158",
+    appId: "1:645502698158:web:d588414d71758ee0cfa33f",
+    measurementId: "G-Z22Q2YQP1P"
   },
   production: true
 };

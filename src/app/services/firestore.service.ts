@@ -12,7 +12,7 @@ export class FirestoreService {
   private itemsCollection: AngularFirestoreCollection<Item>;
   items: Observable<Item[]>;
   constructor(private afs: AngularFirestore) {
-    this.itemsCollection = afs.collection<Item>('projects');
+    this.itemsCollection = afs.collection<Item>('projects1');
     this.items = this.itemsCollection.valueChanges();
   }
 
