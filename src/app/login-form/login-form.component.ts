@@ -23,7 +23,7 @@ export class LoginFormComponent implements OnInit {
     });
   }
   login() {
-    console.log('trying to login');
+    //console.log('trying to login');
     this.firebaseService
       .signin(this.registerForm.value.email, this.registerForm.value.password)
       .then(() => {
@@ -33,5 +33,10 @@ export class LoginFormComponent implements OnInit {
         console.log('[LoginFormComponent]: login() -', error);
       });
    
+  }
+
+  signinwithgoogle(){
+    this.firebaseService.loginWithGoogle()
+    
   }
 }
