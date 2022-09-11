@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,OnDestroy} from '@angular/core';
 import { Project } from 'src/app/models/project';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { ProjectComponent } from '../project/project.component';
@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
   templateUrl: './project-details.component.html',
   styleUrls: ['./project-details.component.css']
 })
-export class ProjectDetailsComponent implements OnInit {
+export class ProjectDetailsComponent implements OnInit,OnDestroy {
 project:Project
   constructor(private location:Location,private pc:ProjectComponent,private fs:FirestoreService) { }
 
@@ -28,6 +28,10 @@ project:Project
 
     }
   }
+  }
+
+  ngOnDestroy(): void {
+    ProjectComponent.projecttoedit={}
   }
   onSubmit() {
     if(ProjectComponent.flag===false){
