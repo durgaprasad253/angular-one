@@ -1,28 +1,55 @@
-import { Component, OnInit,HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {data} from './data';
-import {Item} from '../../models/item'
+import {Project} from '../../models/project'
 import {Location} from '@angular/common';
 import {FirestoreService} from '../../services/firestore.service'
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
   styleUrls: ['./project.component.css']
 })
-
+@Injectable({
+  providedIn: 'root',
+})
 export class ProjectComponent implements OnInit {
   datalist = data;
-  dl:Item[];
-  constructor(private location: Location,private fs:FirestoreService) { }
+  dl:Project[];
+  static flag=false
+  static projecttoedit:Project
+  constructor(private router:Router,private location: Location,private fs:FirestoreService) {
+
+
+   }
+   
 
   ngOnInit(): void {
     this.fs.getData().subscribe(data =>{
       this.dl=data;
     })
   }
-  @HostListener('click')
-  onClick(){
+  
+  back(){
     this.location.back()
   }
+
+  delete(project:Project){
+      if(confirm("Are you sure you want to delete the project? This operation cannot be undone!")){
+        this.fs.deleteProject(project)
+      }
+  }
+
+  update(project:Project){
+    ProjectComponent.flag=true
+    ProjectComponent.projecttoedit=project
+    this.router.navigate(['/projects/details'])
+
+  }
+
+
+  
 
 }

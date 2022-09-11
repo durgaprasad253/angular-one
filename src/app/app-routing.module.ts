@@ -28,17 +28,18 @@ const routes: Routes = [
     path: 'login',
     component: LoginFormComponent,
   },
+  
   {
     path: 'signup',
     component: SignupFormComponent,
   },
   {
-    path:'phonelogin',
-    component:PhoneLoginComponent,
+    path: 'phonelogin',
+    component: PhoneLoginComponent,
   },
   {
-    path:'code',
-    component:CodePhoneLoginComponent,
+    path: 'code',
+    component: CodePhoneLoginComponent,
   },
   {
     path: '',
@@ -49,7 +50,6 @@ const routes: Routes = [
     path: '**',
     redirectTo: '/home',
   },
-  
 ];
 
 @NgModule({

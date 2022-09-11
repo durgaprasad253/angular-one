@@ -40,8 +40,8 @@ export class AuthService {
         localStorage.setItem('token', JSON.stringify(res.user?.uid));
         this.router.navigate(['/home']);
       })
-      .catch(() => {
-        alert('error');
+      .catch((error) => {
+        alert(error);
       });
   }
 }

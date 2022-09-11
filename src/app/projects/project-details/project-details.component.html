@@ -1,0 +1,59 @@
+
+<link
+rel="stylesheet"
+type="text/css"
+href="//fonts.googleapis.com/css?family=Open+Sans"
+/>
+<form (submit)="onSubmit()">
+<div class="container">
+  <label for="name"><b>Name</b></label>
+  <input
+    type="text"
+    placeholder="Enter Name"
+    name="name"
+    [(ngModel)]="project.name"
+  />
+
+  <label for="desc"><b>Description</b></label>
+  <input
+    type="text"
+    placeholder="Enter Description"
+    name="desc"
+    [(ngModel)]="project.description"
+  />
+  <label for="dur"><b>Duration</b></label>
+  <input
+    type="text"
+    placeholder="Enter Duration"
+    name="dur"
+    [(ngModel)]="project.duration"
+  />
+  <label for="bud"><b>Budject</b></label>
+  <input
+    type="text"
+    placeholder="Enter budget"
+    name="bud"
+    [(ngModel)]="project.budget"
+  />
+  <label for="startDate"><b>Startdate</b></label>
+  <input
+    type="datetime-local"
+    placeholder="Enter StartDate"
+    name="startDate"
+    [(ngModel)]="project.startDate"
+  />
+  <label for="status">Status</label> <br />
+  <select name="status" [(ngModel)]="project.status" >
+      <option value="Completed">Completed</option>
+      <option value="In-progress">In-Progress</option>
+      <option value="New" selected>New</option>
+      <option value="Budgeted">Budgeted</option>
+  </select>
+ 
+
+  <button class="save-btn" type="submit" >Save</button>
+  
+
+  
+</div>
+</form>

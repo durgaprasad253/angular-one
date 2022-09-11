@@ -15,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PhoneLoginComponent } from './phone-login/phone-login.component';
 import { CodePhoneLoginComponent } from './code-phone-login/code-phone-login.component';
 import { NgOtpInputModule } from 'ng-otp-input';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
     SignupFormComponent,
     PhoneLoginComponent,
     CodePhoneLoginComponent,
+   
     
   ],
   imports: [
@@ -39,6 +42,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
+    NoopAnimationsModule,
 
   ],
   providers: [],
