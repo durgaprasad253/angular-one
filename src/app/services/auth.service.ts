@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import { BehaviorSubject,Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  isLoggedIn = false;
-  constructor(public auth: AngularFireAuth, public router: Router) {}
+  private loggedIn=new BehaviorSubject<boolean>(false)
+  constructor(public auth: AngularFireAuth, public router: Router) {
+    this.auth.authState.subscribe((user)=>{this.loggedIn.next(Boolean(user?.uid))})
+  }
   signin(email: string, password: string) {
     return this.auth
       .signInWithEmailAndPassword(email, password)
-      .then((res) => {
-        this.isLoggedIn = true;
-      })
       .catch((error) => {
         alert(error);
       });
@@ -22,13 +22,10 @@ export class AuthService {
 
   async signup(email: string, password: string) {
     await this.auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((res) => {
-        this.isLoggedIn = true;
-      });
+      .createUserWithEmailAndPassword(email, password);
   }
   logout() {
-    this.isLoggedIn = false;
+    this.loggedIn.next(false)
     return this.auth.signOut();
   }
 
@@ -36,12 +33,15 @@ export class AuthService {
     return this.auth
       .signInWithPopup(new GoogleAuthProvider())
       .then((res) => {
-        this.isLoggedIn = true;
         localStorage.setItem('token', JSON.stringify(res.user?.uid));
         this.router.navigate(['/home']);
       })
       .catch((error) => {
         alert(error);
       });
+  }
+
+  ifloggedIn():Observable<boolean>{
+    return this.loggedIn.asObservable()
   }
 }

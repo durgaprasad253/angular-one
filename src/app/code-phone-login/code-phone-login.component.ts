@@ -25,7 +25,6 @@ this.otp=otpCode
   handleClick(){
     var cred = firebase.auth.PhoneAuthProvider.credential(this.verify,this.otp)
     firebase.auth().signInWithCredential(cred).then((response)=>{
-      this.auth.isLoggedIn=true
       this.router.navigate(['/home'])
     }).catch((error)=>{
       alert(error)

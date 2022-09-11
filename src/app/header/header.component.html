@@ -3,9 +3,9 @@
     <nav >
         
             <a routerLink = "/">Home</a>
-            <a *ngIf="auth.isLoggedIn" routerLink = "/profile">Profile</a>
-            <a  *ngIf="auth.isLoggedIn" routerLink = "/projects">Projects</a>
-            <a (click)="toggleLogin()">{{auth.isLoggedIn ? 'Logout' : 'Login'}}</a>
+            <a *ngIf="userLoggedIn" routerLink = "/profile">Profile</a>
+            <a  *ngIf="userLoggedIn" routerLink = "/projects">Projects</a>
+            <a (click)="toggleLogin()">{{userLoggedIn ? 'Logout' : 'Login'}}</a>
         
     </nav>
 </header>
