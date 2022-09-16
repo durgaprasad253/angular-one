@@ -3,7 +3,7 @@ import { Project } from 'src/app/models/project';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { ProjectComponent } from '../project/project.component';
 import { Location } from '@angular/common';
-
+import { Members } from 'src/app/models/members';
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 })
 export class ProjectDetailsComponent implements OnInit,OnDestroy {
 project:Project
+memberList:Members[];
   constructor(private location:Location,private pc:ProjectComponent,private fs:FirestoreService) { }
 
   ngOnInit(): void {
@@ -28,6 +29,11 @@ project:Project
 
     }
   }
+  if(this.project){
+  this.fs.getMembers(this.project.id).subscribe(res=>{
+    this.memberList=res
+  })
+}
   }
 
   ngOnDestroy(): void {
@@ -35,6 +41,7 @@ project:Project
   }
   onSubmit() {
     if(ProjectComponent.flag===false){
+      console.log(this.project)
     this.fs.addData(this.project)
     this.location.back()
     this.project={}

@@ -6,6 +6,7 @@ import {
 } from '@angular/fire/compat/firestore';
 import { map,Observable } from 'rxjs';
 import {Project} from '../models/project'
+import { Members } from '../models/members';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,13 +14,10 @@ export class FirestoreService {
   private projectsCollection: AngularFirestoreCollection<Project>;
   private projectsDocument:AngularFirestoreDocument<Project>
   projects: Observable<Project[]>;
+  members:Observable<Members[]>
   constructor(private afs: AngularFirestore) {
-    this.projectsCollection = afs.collection<Project>('projects1');
-    this.projects = this.projectsCollection.snapshotChanges().pipe(map(actions => actions.map(a=>{
-      const data=a.payload.doc.data() as Project;
-      data.id=a.payload.doc.id;
-      return data;
-    })));
+    this.projects = afs.collection<Project>('projects1').valueChanges({idField:'id'});
+
     
   }
 
@@ -27,7 +25,8 @@ export class FirestoreService {
     return this.projects;
   }
   addData(project:Project){
-    this.projectsCollection.add(project)
+    this.afs.collection<Project>('projects1').add(project)
+  
   }
 
   updateData(project:Project){
@@ -36,7 +35,13 @@ export class FirestoreService {
 
   deleteProject(project:Project){
     this.projectsDocument = this.afs.doc('projects1/'+project.id)
+    console.log(project.id)
     this.projectsDocument.delete()
+  }
+
+  getMembers(id:Project['id']){
+    this.members=this.afs.collection<Members>('projects1/'+id+'/members').valueChanges({idField:'id'})
+    return this.members
   }
 
 }
