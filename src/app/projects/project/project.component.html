@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of dl">
+      <tr *ngFor="let data of projectList">
         <td>{{  data.name}}</td>
         <td>{{ data.description }}</td>
         <td><button (click)="update(data)">📝</button></td>
@@ -27,6 +27,7 @@
   </table>
   
 </div>
+
 
 <button class="button" (click)="back()">Back</button>
 <button class="button" routerLink="/projects/details">Add Project</button>

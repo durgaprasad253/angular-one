@@ -4,8 +4,11 @@ rel="stylesheet"
 type="text/css"
 href="//fonts.googleapis.com/css?family=Open+Sans"
 />
+
+
 <form (submit)="onSubmit()">
 <div class="container">
+  <h1>Project Details</h1>
   <label for="name"><b>Name</b></label>
   <input
     type="text"
@@ -57,3 +60,20 @@ href="//fonts.googleapis.com/css?family=Open+Sans"
   
 </div>
 </form>
+
+<div class="members">
+  <h1>Member Details</h1>
+  <table id="main-table">
+    <thead>
+        <tr>
+          
+          <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of memberList">
+        <td>{{data.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

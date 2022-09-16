@@ -5,6 +5,7 @@ import {Location} from '@angular/common';
 import {FirestoreService} from '../../services/firestore.service'
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Members } from 'src/app/models/members';
 
 
 @Component({
@@ -16,8 +17,9 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class ProjectComponent implements OnInit {
-  datalist = data;
-  dl:Project[];
+  projectList:Project[];
+  
+
   static flag=false
   static projecttoedit:Project
   constructor(private router:Router,private location: Location,private fs:FirestoreService) {
@@ -28,8 +30,9 @@ export class ProjectComponent implements OnInit {
 
   ngOnInit(): void {
     this.fs.getData().subscribe(data =>{
-      this.dl=data;
+      this.projectList=data;
     })
+    
   }
   
   back(){
@@ -46,8 +49,9 @@ export class ProjectComponent implements OnInit {
     ProjectComponent.flag=true
     ProjectComponent.projecttoedit=project
     this.router.navigate(['/projects/details'])
-
+    
   }
+
 
 
   
