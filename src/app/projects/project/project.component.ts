@@ -41,7 +41,7 @@ export class ProjectComponent implements OnInit {
 
   delete(project:Project){
       if(confirm("Are you sure you want to delete the project? This operation cannot be undone!")){
-        this.fs.deleteProject(project)
+        this.fs.deleteProject(project).then(()=>alert('Record successfully deleated')).catch(()=>alert('Failed!'))
       }
   }
 
