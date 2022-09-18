@@ -12,9 +12,11 @@ import { Members } from 'src/app/models/members';
 export class ProjectDetailsComponent implements OnInit,OnDestroy {
 project:Project
 memberList:Members[];
+flag:Boolean;
   constructor(private location:Location,private pc:ProjectComponent,private fs:FirestoreService) { }
 
   ngOnInit(): void {
+    this.flag=ProjectComponent.flag
     if(ProjectComponent.flag===true){
       this.project=ProjectComponent.projecttoedit
     }
@@ -39,18 +41,20 @@ memberList:Members[];
   ngOnDestroy(): void {
     ProjectComponent.projecttoedit={}
   }
-  onSubmit() {
+   async onSubmit() {
     if(ProjectComponent.flag===false){
       console.log(this.project)
-    this.fs.addData(this.project)
+     await this.fs.addData(this.project).then(()=>alert("Success")).catch(()=>alert('Error adding project'))
     this.location.back()
     this.project={}
     }
     else{
-      this.fs.updateData(this.project)
+     await  this.fs.updateData(this.project).then(()=>alert('Success')).catch(()=>alert('Error updating the record'))
       this.location.back()
       this.project={}
       ProjectComponent.flag=false
     }
     }
 }
+
+

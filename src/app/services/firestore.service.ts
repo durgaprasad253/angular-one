@@ -17,23 +17,20 @@ export class FirestoreService {
   members:Observable<Members[]>
   constructor(private afs: AngularFirestore) {
     this.projects = afs.collection<Project>('projects1').valueChanges({idField:'id'});
-
-    
   }
 
   getData(){
     return this.projects;
   }
-  addData(project:Project){
-    this.afs.collection<Project>('projects1').add(project)
-  
+   async addData(project:Project){
+   return  this.afs.collection<Project>('projects1').add(project)
   }
 
-  updateData(project:Project){
-    this.afs.doc('projects1/'+project.id).update(project);
+  async updateData(project:Project){
+   return this.afs.doc('projects1/'+project.id).update(project);
   }
 
-  deleteProject(project:Project){
+  async deleteProject(project:Project){
     this.projectsDocument = this.afs.doc('projects1/'+project.id)
     console.log(project.id)
     this.projectsDocument.delete()
