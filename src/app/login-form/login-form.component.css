@@ -53,11 +53,13 @@ form {
 .google-btn {
   width: 184px;
   height: 42px;
-  margin-top: 5px;
-  margin-left: 540px;
+  margin-top: 45px;
+  margin-left: 700px;
   background-color: #4285f4;
   border-radius: 2px;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+
+
 }
 .google-btn .google-icon-wrapper {
   position: absolute;
@@ -71,7 +73,7 @@ form {
 .google-btn .google-icon {
   position: absolute;
   margin-top: 11px;
-  margin-left: 11px;
+  margin-left: 20px;
   width: 18px;
   height: 18px;
 }
@@ -90,5 +92,11 @@ form {
   background: #1669f2;
 }
   
+#phone{
+  display: block;
+  float: right;
+}
+
+
   
   

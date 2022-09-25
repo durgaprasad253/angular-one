@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 
@@ -12,7 +13,7 @@ import { AuthService } from '../services/auth.service';
 export class SignupFormComponent implements OnInit {
   registerForm: FormGroup;
   isSignedIn=false
-  constructor(private fb: FormBuilder,public firebaseService:AuthService) { }
+  constructor(private fb: FormBuilder,public firebaseService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -24,10 +25,11 @@ export class SignupFormComponent implements OnInit {
   
   async signup(){
    
-    await this.firebaseService.signup(this.registerForm.value.email,this.registerForm.value.password)
-    // if(this.firebaseService.isLoggedIn)
-    this.isSignedIn=true
-    
+    await this.firebaseService.signup(this.registerForm.value.email,this.registerForm.value.password).then(()=>{
+      alert('Sign up successfull, Please login')
+      this.router.navigate(['login'])
+    }).catch((error)=>{alert(error)})
+   
   }
 
   

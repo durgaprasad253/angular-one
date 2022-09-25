@@ -5,6 +5,7 @@ import { ProjectRoutingModule } from './projects-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { FormsModule } from '@angular/forms';
+import { AddMemberComponent } from './add-member/add-member.component';
 
 
 
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     ProjectComponent,
     ProjectDetailsComponent,
+    AddMemberComponent,
    
     
   ],
