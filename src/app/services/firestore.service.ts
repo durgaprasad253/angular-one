@@ -31,9 +31,12 @@ export class FirestoreService {
   }
 
   async deleteProject(project:Project){
-    this.projectsDocument = this.afs.doc('projects1/'+project.id)
-    console.log(project.id)
-    this.projectsDocument.delete()
+    this.afs.doc('projects1/'+project.id).delete()
+    
+  }
+
+  async addMember(id:Project['id'],member:Members){
+    return this.afs.collection<Members>('projects1/'+id+'/members').add(member)
   }
 
   getMembers(id:Project['id']){

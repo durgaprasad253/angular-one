@@ -4,21 +4,24 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 import { ProjectComponent } from '../project/project.component';
 import { Location } from '@angular/common';
 import { Members } from 'src/app/models/members';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
   styleUrls: ['./project-details.component.css']
 })
 export class ProjectDetailsComponent implements OnInit,OnDestroy {
+static addmemid:Project['id']
 project:Project
 memberList:Members[];
 flag:Boolean;
-  constructor(private location:Location,private pc:ProjectComponent,private fs:FirestoreService) { }
+  constructor(private location:Location,private pc:ProjectComponent,private fs:FirestoreService,private router:Router) { }
 
   ngOnInit(): void {
     this.flag=ProjectComponent.flag
     if(ProjectComponent.flag===true){
       this.project=ProjectComponent.projecttoedit
+      ProjectDetailsComponent.addmemid=this.project.id
     }
     else{
     this.project={
@@ -40,13 +43,21 @@ flag:Boolean;
 
   ngOnDestroy(): void {
     ProjectComponent.projecttoedit={}
+    ProjectComponent.flag=false
   }
    async onSubmit() {
     if(ProjectComponent.flag===false){
       console.log(this.project)
-     await this.fs.addData(this.project).then(()=>alert("Success")).catch(()=>alert('Error adding project'))
-    this.location.back()
-    this.project={}
+     await this.fs.addData(this.project).then(()=>{
+      // if(confirm("Do you wish to add members?")){
+      //   this.router.navigate(['projects/memdetails'])
+        
+      // }else{
+        this.location.back()
+        this.project={}
+      // }
+    }).catch(()=>alert('Error adding project'))
+    
     }
     else{
      await  this.fs.updateData(this.project).then(()=>alert('Success')).catch(()=>alert('Error updating the record'))

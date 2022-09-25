@@ -1,0 +1,38 @@
+<link
+rel="stylesheet"
+type="text/css"
+href="//fonts.googleapis.com/css?family=Open+Sans"
+/>
+
+
+<form (submit)="onSubmit()">
+<div class="container">
+  <h1>Member Details</h1>
+  <label for="name"><b>Name</b></label>
+  <input
+    type="text"
+    placeholder="Enter Name"
+    name="name"
+    [(ngModel)]="member.name"
+  />
+
+  <label for="email"><b>email</b></label>
+  <input
+    type="text"
+    placeholder="Enter Description"
+    name="email"
+    [(ngModel)]="member.email"
+  />
+  <label for="mob"><b>Mobile</b></label>
+  <input
+    type="text"
+    placeholder="Enter Duration"
+    name="mob"
+    [(ngModel)]="member.phone"
+  />
+  <button class="save-btn" type="submit" >Save</button>
+  
+
+  
+</div>
+</form>

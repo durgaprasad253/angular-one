@@ -63,17 +63,27 @@ href="//fonts.googleapis.com/css?family=Open+Sans"
 
 <div *ngIf="this.flag" class="members">
   <h1>Member Details</h1>
-  <table id="main-table">
+  <h2 *ngIf="memberList.length==0">Please add members</h2>
+  <table *ngIf="memberList.length!=0" id="main-table">
     <thead>
         <tr>
           
           <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Edit</th>
+          <th>delete</th>
         </tr>
     </thead>
     <tbody>
       <tr *ngFor="let data of memberList">
         <td>{{data.name}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.phone}}</td>
+        <td>edit</td>
+        <td>delete</td>
       </tr>
     </tbody>
   </table>
+  <button routerLink="/projects/memdetails" id="addMem">Add Members</button>
 </div>
