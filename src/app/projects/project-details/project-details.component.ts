@@ -5,6 +5,7 @@ import { ProjectComponent } from '../project/project.component';
 import { Location } from '@angular/common';
 import { Members } from 'src/app/models/members';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
@@ -47,15 +48,16 @@ flag:Boolean;
   }
    async onSubmit() {
     if(ProjectComponent.flag===false){
-      console.log(this.project)
-     await this.fs.addData(this.project).then(()=>{
-      // if(confirm("Do you wish to add members?")){
-      //   this.router.navigate(['projects/memdetails'])
+     await this.fs.addData(this.project).then((data)=>{
+      if(confirm("Do you wish to add members?")){
+        ProjectDetailsComponent.addmemid=data.id
+        this.router.navigate(['projects/memdetails'])
+
         
-      // }else{
+      }else{
         this.location.back()
         this.project={}
-      // }
+      }
     }).catch(()=>alert('Error adding project'))
     
     }

@@ -7,6 +7,8 @@ import {
 import { map,Observable } from 'rxjs';
 import {Project} from '../models/project'
 import { Members } from '../models/members';
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { data } from '../projects/project/data';
 @Injectable({
   providedIn: 'root',
 })
@@ -23,7 +25,7 @@ export class FirestoreService {
     return this.projects;
   }
    async addData(project:Project){
-   return  this.afs.collection<Project>('projects1').add(project)
+    return this.afs.collection<Project>('projects1').add(project)
   }
 
   async updateData(project:Project){
@@ -42,6 +44,13 @@ export class FirestoreService {
   getMembers(id:Project['id']){
     this.members=this.afs.collection<Members>('projects1/'+id+'/members').valueChanges({idField:'id'})
     return this.members
+  }
+
+  async getId(){
+  
+    // const q=query(projRef,where("name","==","Angular"))
+    // const querySnapshot= await getDocs(q)
+    
   }
 
 }
