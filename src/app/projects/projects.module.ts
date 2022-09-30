@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { FormsModule } from '@angular/forms';
 import { AddMemberComponent } from './add-member/add-member.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 
 
@@ -23,7 +24,8 @@ import { AddMemberComponent } from './add-member/add-member.component';
     CommonModule,
     ProjectRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AngularFireStorageModule
   ],
   exports:[ProjectComponent]
 })

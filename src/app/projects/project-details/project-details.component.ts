@@ -41,7 +41,6 @@ flag:Boolean;
   if(this.project){
   this.fs.getMembers(this.project.id).subscribe(res=>{
     this.memberList=res
-    console.log(this.memberList)
   })
 }
   }

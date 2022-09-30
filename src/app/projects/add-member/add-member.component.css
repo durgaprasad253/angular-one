@@ -7,7 +7,7 @@ form {
   }
   
   /* Full-width inputs */
-  input[type=text], input[type=datetime-local],select{
+  input[type=text], input[type=file],input[type=datetime-local],select{
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -31,13 +31,6 @@ form {
   .save-btn:hover {
     opacity: 0.8;
   }
-  
-  
-  
-  
-  
- 
-  
   /* Add padding to containers */
   .container {
     padding: 16px;

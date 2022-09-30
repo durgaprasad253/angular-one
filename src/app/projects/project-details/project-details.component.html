@@ -67,7 +67,7 @@ href="//fonts.googleapis.com/css?family=Open+Sans"
   <table *ngIf="memberList.length!=0" id="main-table">
     <thead>
         <tr>
-          
+          <th>Image</th>
           <th>Name</th>
           <th>Email</th>
           <th>Mobile</th>
@@ -77,6 +77,7 @@ href="//fonts.googleapis.com/css?family=Open+Sans"
     </thead>
     <tbody>
       <tr *ngFor="let data of memberList">
+        <td><img width="100px" height="100px" src="{{data.imgpath}}" alt=""></td>
         <td>{{data.name}}</td>
         <td>{{data.email}}</td>
         <td>{{data.phone}}</td>
