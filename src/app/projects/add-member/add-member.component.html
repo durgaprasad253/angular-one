@@ -30,7 +30,8 @@ href="//fonts.googleapis.com/css?family=Open+Sans"
     name="mob"
     [(ngModel)]="member.phone"
   />
- <input type="file" (change)="uploadFile($event)">
+  <label for="profilepic">Profile Picture</label>
+ <input type="file" name="profilepic" (change)="uploadFile($event)">
  <progress *ngIf="!imgupdateFlag" value={{uploadPercent|async}} max="100"></progress>
  
   <button class="save-btn" type="submit" >Save</button>
