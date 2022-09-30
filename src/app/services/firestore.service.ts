@@ -46,6 +46,14 @@ export class FirestoreService {
     return this.members
   }
 
+  async updateMember(pid:Project['id'],member:Members){
+    return this.afs.doc('projects1/'+pid+'/members/'+member.id).update(member)
+  }
+
+  async deleteMember(pid:Project['id'],mid:Members['id']){
+    this.afs.doc('projects1/'+pid+'/members/'+mid).delete()
+  }
+
   async getId(){
   
     // const q=query(projRef,where("name","==","Angular"))

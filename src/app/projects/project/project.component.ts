@@ -18,6 +18,7 @@ import { Members } from 'src/app/models/members';
 })
 export class ProjectComponent implements OnInit {
   projectList:Project[];
+  memberList:Members[];
   
 
   static flag=false
@@ -41,6 +42,12 @@ export class ProjectComponent implements OnInit {
 
   delete(project:Project){
       if(confirm("Are you sure you want to delete the project? This operation cannot be undone!")){
+        this.fs.getMembers(project.id).forEach(value=>{
+        for(let i=0;i<value.length;i++){
+          this.fs.deleteMember(project.id,value[i].id)
+        }
+        })
+        
         this.fs.deleteProject(project).then(()=>alert('Record successfully deleated')).catch(()=>alert('Failed!'))
       }
   }

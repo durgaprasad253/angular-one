@@ -13,12 +13,15 @@ import { Router } from '@angular/router';
 })
 export class ProjectDetailsComponent implements OnInit,OnDestroy {
 static addmemid:Project['id']
+static memUpdateFlag:Boolean=false
+static memtoEdit:Members
+static projectIdUnderEdit:Project['id']
 project:Project
 memberList:Members[];
 flag:Boolean;
   constructor(private location:Location,private pc:ProjectComponent,private fs:FirestoreService,private router:Router) { }
 
-  ngOnInit(): void {
+  ngOnInit():void {
     this.flag=ProjectComponent.flag
     if(ProjectComponent.flag===true){
       this.project=ProjectComponent.projecttoedit
@@ -38,6 +41,7 @@ flag:Boolean;
   if(this.project){
   this.fs.getMembers(this.project.id).subscribe(res=>{
     this.memberList=res
+    console.log(this.memberList)
   })
 }
   }
@@ -67,6 +71,19 @@ flag:Boolean;
       this.project={}
       ProjectComponent.flag=false
     }
+    }
+
+    update(member:Members){
+      ProjectDetailsComponent.memUpdateFlag=true
+      ProjectDetailsComponent.memtoEdit=member
+      ProjectDetailsComponent.projectIdUnderEdit=ProjectComponent.projecttoedit.id
+      this.router.navigate(['projects/memdetails'])
+    }
+
+    delete(member:Members){
+      this.fs.deleteMember(ProjectComponent.projecttoedit.id,member.id).then(()=>{
+        alert('Member deleated successfully')
+      }).catch(()=>alert('Error deleating member'))
     }
 }
 

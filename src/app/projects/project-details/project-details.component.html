@@ -80,8 +80,8 @@ href="//fonts.googleapis.com/css?family=Open+Sans"
         <td>{{data.name}}</td>
         <td>{{data.email}}</td>
         <td>{{data.phone}}</td>
-        <td>edit</td>
-        <td>delete</td>
+        <td><button (click)="update(data)">📝</button></td>
+        <td><button (click)="delete(data)">🚮</button></td>
       </tr>
     </tbody>
   </table>
