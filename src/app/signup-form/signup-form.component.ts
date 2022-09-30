@@ -26,8 +26,8 @@ export class SignupFormComponent implements OnInit {
   async signup(){
    
     await this.firebaseService.signup(this.registerForm.value.email,this.registerForm.value.password).then(()=>{
-      alert('Sign up successfull, Please login')
-      this.router.navigate(['login'])
+      alert('Sign up successfull')
+      this.router.navigate(['projects'])
     }).catch((error)=>{alert(error)})
    
   }

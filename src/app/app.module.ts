@@ -16,6 +16,7 @@ import { PhoneLoginComponent } from './phone-login/phone-login.component';
 import { CodePhoneLoginComponent } from './code-phone-login/code-phone-login.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     FormsModule,
     NgOtpInputModule,
+    AngularFireStorageModule,
    
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),

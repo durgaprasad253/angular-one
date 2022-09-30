@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { Members } from 'src/app/models/members';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { ProjectDetailsComponent } from '../project-details/project-details.component';
-import { ProjectComponent } from '../project/project.component';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { finalize } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-member',
@@ -12,8 +14,11 @@ import { ProjectComponent } from '../project/project.component';
 })
 export class AddMemberComponent implements OnInit, OnDestroy {
   member: Members
+  downloadURL:Observable<string>
+  uploadPercent:Observable<number|undefined>
+  imgupdateFlag:Boolean=true
 
-  constructor(private fs: FirestoreService, private router: Router) { }
+  constructor(private fs: FirestoreService,private storage:AngularFireStorage, private router: Router) { }
 
   ngOnInit(): void {
     if (ProjectDetailsComponent.memUpdateFlag) {
@@ -51,5 +56,22 @@ export class AddMemberComponent implements OnInit, OnDestroy {
         alert('Error updating member')
       })
     }
+  }
+
+  uploadFile(event:any){
+    this.imgupdateFlag=false
+    const file=event.target.files[0]
+    const filePath='profilepic/'+this.member.name
+    const fileRef = this.storage.ref(filePath);
+    const task=this.storage.upload(filePath,file)
+   this.uploadPercent=task.percentageChanges()
+    task.snapshotChanges().pipe(
+      finalize(() => {
+        this.imgupdateFlag=true
+        this.downloadURL = fileRef.getDownloadURL()
+        this.downloadURL.subscribe(data=>this.member.imgpath=data)
+      } )
+   )
+  .subscribe()
   }
 }
