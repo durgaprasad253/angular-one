@@ -1,11 +1,19 @@
-<header id="main-navigation">
-    <h1><a href="index.html">TechWiz</a></h1>
-    <nav >
-        
-            <a routerLink = "/">Home</a>
-            <a *ngIf="userLoggedIn" routerLink = "/profile">Profile</a>
-            <a  *ngIf="userLoggedIn" routerLink = "/projects">Projects</a>
-            <a (click)="toggleLogin()">{{userLoggedIn ? 'Logout' : 'Login'}}</a>
-        
-    </nav>
-</header>
+
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav>
+        <mat-nav-list (click)="sidenav.close()">
+            <a routerLink="/" mat-list-item>Home</a>
+            <a *ngIf="userLoggedIn" routerLink="/profile" mat-list-item>Profile</a>
+            <a *ngIf="userLoggedIn" routerLink="/projects" mat-list-item>Projects</a>
+            <a (click)="toggleLogin()" mat-list-item>{{userLoggedIn ? 'Logout' : 'Login'}}</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-toolbar>
+        <button class="headerToolbar" mat-icon-button (click)="sidenav.open()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="headerToolbar">Tech Wiz</h1>
+
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+</mat-sidenav-container>
