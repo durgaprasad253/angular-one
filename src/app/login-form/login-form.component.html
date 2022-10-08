@@ -1,43 +1,31 @@
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="//fonts.googleapis.com/css?family=Open+Sans"
-/>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 <form [formGroup]="registerForm">
   <div class="container">
-    <label for="uname"><b>Email</b></label>
-    <input
-      type="text"
-      formControlName="email"
-      placeholder="Enter Email"
-      name="uname"
-      required
-    />
 
-    <label for="psw"><b>Password</b></label>
-    <input
-      type="password"
-      formControlName="password"
-      placeholder="Enter Password"
-      name="psw"
-      required
-    />
+    <mat-form-field class="full-width">
+      <input matInput type="email" placeholder="Enter email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput type="password" placeholder="Enter password" formControlName="password">
+    </mat-form-field>
+    <button id="submitbtn" mat-button type="submit" (click)="login()">Log In</button>
 
-    <button class="login-btn" type="submit" (click)="login()">Log In</button>
-    <div id="phone">
-      <a routerLink="/signup">Register user</a>
-      <br>
-      <a routerLink="/phonelogin">Login with phone number</a>
-    </div>
+    <button id="googlebtn" mat-button (click)="signinwithgoogle()">
+      <mat-icon style="width: 45px; height:25px" svgIcon="logo"></mat-icon> Login With Google
+    </button>
+<button mat-button>
+    <a id="phonelogin" routerLink="/phonelogin" >
+      <mat-icon>call</mat-icon>
+      <span>Login in with phone</span>
+    </a>
+  </button>
+    
+    <button id="registerbtn" mat-button>
+      <a routerLink="/signup">
+      <mat-icon>person_add</mat-icon>
+      <span>Register User</span>
+    </a>
+    </button>
 
-    <div class="google-btn" (click)="signinwithgoogle()">
-      <div class="google-icon-wrapper">
-        <img
-          class="google-icon"
-          src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-        />
-      </div>
-      <p class="btn-text"><b>Sign in with google</b></p>
-    </div>
   </div>
 </form>
