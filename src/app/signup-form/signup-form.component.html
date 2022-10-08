@@ -2,14 +2,15 @@
     
   
     <div class="container">
-      <label for="uname"><b>Email</b></label>
-      <input type="text" formControlName="email" placeholder="Enter Email" name="uname" required>
-  
-      <label for="pass"><b>Password</b></label>
-      <input type="password" formControlName="password" placeholder="Enter Password" name="pass" required>
-  
-      <button type="submit" (click)="signup()">Sign In</button>
-      <span class="psw"><a routerLink="/login">Registered User? Click here to Login</a></span>
+      <mat-form-field class="full-width">
+        <input matInput type="email" placeholder="Enter email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput type="password" placeholder="Enter password" formControlName="password">
+      </mat-form-field>
+      <button mat-button type="submit" (click)="signup()">Sign In</button>
+      <span class="psw"><a routerLink="/login">Registered User?<br>Click here to login</a></span>
     </div>
+   
 
   </form>

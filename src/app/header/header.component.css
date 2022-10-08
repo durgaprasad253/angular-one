@@ -8,3 +8,10 @@ h1{
 .mat-toolbar{
   background: blueviolet;
 }
+.mat-icon{
+  vertical-align: top;
+  color: white;
+}
+.mat-icon-button{
+  vertical-align: top;
+}

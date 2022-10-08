@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-
+import {ErrorStateMatcher} from '@angular/material/core';
 
 
 @Component({
@@ -13,13 +13,15 @@ import { AuthService } from '../services/auth.service';
 export class SignupFormComponent implements OnInit {
   registerForm: FormGroup;
   isSignedIn=false
+  
   constructor(private fb: FormBuilder,public firebaseService:AuthService,private router:Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      email: new FormControl(''),
+      email: new FormControl('',[Validators.required,Validators.email]),
       password: new FormControl('')
     })
+    
 
   }
   
