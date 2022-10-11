@@ -4,67 +4,36 @@ form {
     margin-top: 150px;
     margin-left: 365px;
     border: 3px solid #f1f1f1;
-  }
-  
-  /* Full-width inputs */
-  input[type=text], input[type=file],input[type=datetime-local],select{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  /* Set a style for all buttons */
-  .save-btn,#addMem {
-    background-color:blueviolet;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  /* Add a hover effect for buttons */
-  .save-btn:hover {
-    opacity: 0.8;
-  }
-  /* Add padding to containers */
-  .container {
-    padding: 16px;
-  }
-
-
-  #main-table {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
     
   }
   
-  #main-table td, #main-table th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  #main-table tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #main-table tr:hover {background-color: #ddd;}
-  
-  #main-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color:blueviolet;
-    color: white;
-  }
-  
-  .members{
-    width: 49%;
-    margin-top: 50px;
-    margin-left: 365px;
-    border: 3px solid #f1f1f1;
+ .full-width{
+  width: 100%;
+ }
+ 
+ .save-btn{
+  display: block;
+  color:white;
+    margin-left: 5px;
+    background: blueviolet;
+    margin: 10px;
+ }
+ 
+  /* Add padding to containers */
+  .container {
     padding: 16px;
+   
   }
+
+  #icon:hover{
+    color: blue;
+  }
+
+  #icon:active{
+    color: red;
+  }
+
+  progress{
+    display: block;
+  }
+ 

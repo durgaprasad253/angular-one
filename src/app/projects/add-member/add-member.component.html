@@ -8,33 +8,24 @@ href="//fonts.googleapis.com/css?family=Open+Sans"
 <form (submit)="onSubmit()">
 <div class="container">
   <h1>Member Details</h1>
-  <label for="name"><b>Name</b></label>
-  <input
-    type="text"
-    placeholder="Enter Name"
-    name="name"
-    [(ngModel)]="member.name"
-  />
 
-  <label for="email"><b>email</b></label>
-  <input
-    type="text"
-    placeholder="Enter Email"
-    name="email"
-    [(ngModel)]="member.email"
-  />
-  <label for="mob"><b>Mobile</b></label>
-  <input
-    type="text"
-    placeholder="Enter Mobile"
-    name="mob"
-    [(ngModel)]="member.phone"
-  />
-  <label for="profilepic">Profile Picture</label>
- <input type="file" name="profilepic" (change)="uploadFile($event)">
- <progress *ngIf="!imgupdateFlag" value={{uploadPercent|async}} max="100"></progress>
- 
-  <button class="save-btn" type="submit" >Save</button>
+  <mat-form-field class="full-width">
+    <input matInput [(ngModel)]="member.name" placeholder="Enter Name" name="name">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput [(ngModel)]="member.email" placeholder="Enter Email" name="email">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <input matInput [(ngModel)]="member.phone" placeholder="Enter Mobile Number" name="mobile">
+  </mat-form-field>
+
+  <label for="profilepic">Choose Profile Picture : </label>
+    <input mat-button #fileupload hidden="true" type="file"  placeholder="Upload Image" name="profilepic" (change)="uploadFile($event)">
+    <mat-icon id="icon" (click)="fileupload.click()">cloud_upload</mat-icon>
+  <progress *ngIf="!imgupdateFlag" value={{uploadPercent|async}} max="100"></progress>
+  <button mat-button class="save-btn" type="submit" >Save</button>
   
 
   

@@ -17,6 +17,15 @@ import { CodePhoneLoginComponent } from './code-phone-login/code-phone-login.com
 import { NgOtpInputModule } from 'ng-otp-input';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -40,6 +49,15 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     FormsModule,
     NgOtpInputModule,
     AngularFireStorageModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    HttpClientModule,
+    MatTableModule,
    
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),

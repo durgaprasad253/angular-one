@@ -6,31 +6,17 @@ form {
     border: 3px solid #f1f1f1;
   }
   
-  /* Full-width inputs */
-  input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  /* Set a style for all buttons */
-  .login-btn {
-    background-color:blueviolet;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
+  .full-width{
     width: 100%;
   }
   
-  /* Add a hover effect for buttons */
-  .login-btn:hover {
-    opacity: 0.8;
+  #submitbtn{
+    color:white;
+    margin-left: 5px;
+    background: blueviolet;
   }
+
+
   
   
   
@@ -42,60 +28,12 @@ form {
   .container {
     padding: 16px;
   }
-
-  #phone,#google{
-    margin-top: 5px;
-    margin-left: 560px;
-    display: block;
-  }
-
   
-.google-btn {
-  width: 184px;
-  height: 42px;
-  margin-top: 45px;
-  margin-left: 700px;
-  background-color: #4285f4;
-  border-radius: 2px;
-  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
 
 
-}
-.google-btn .google-icon-wrapper {
-  position: absolute;
-  margin-top: 1px;
-  margin-left: 1px;
-  width: 40px;
-  height: 40px;
-  border-radius: 2px;
-  background-color: #fff;
-}
-.google-btn .google-icon {
-  position: absolute;
-  margin-top: 11px;
-  margin-left: 20px;
-  width: 18px;
-  height: 18px;
-}
-.google-btn .btn-text {
-  float: right;
-  margin: 11px 11px 0 0;
-  color: #fff;
-  font-size: 14px;
-  letter-spacing: 0.2px;
-  font-family: "Roboto";
-}
-.google-btn:hover {
-  box-shadow: 0 0 6px #4285f4;
-}
-.google-btn:active {
-  background: #1669f2;
-}
-  
-#phone{
-  display: block;
-  float: right;
-}
+
+
+
 
 
   

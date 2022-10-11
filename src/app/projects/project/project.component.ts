@@ -19,6 +19,7 @@ import { Members } from 'src/app/models/members';
 export class ProjectComponent implements OnInit {
   projectList:Project[];
   memberList:Members[];
+  displayedColumns: string[] = ['name', 'description','edit','delete' ];
   
 
   static flag=false

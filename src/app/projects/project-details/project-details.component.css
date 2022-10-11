@@ -1,36 +1,35 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:500);
-form {
-    width: 50%;
+form ,.members{
+    width: 80%;
     margin-top: 150px;
-    margin-left: 365px;
+    margin-left: 150px;
     border: 3px solid #f1f1f1;
   }
+
+  .members{
+    width: 80%;
+    margin-top: 50px;
+    margin-left: 150px;
+    border: 3px solid #f1f1f1;
+    padding: 16px;
+  }
   
-  /* Full-width inputs */
-  input[type=text], input[type=datetime-local],select{
+  .full-width{
     width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    display: block;
   }
+  .submitbtn{
+    color:white;
+    margin-left: 5px;
+    background: blueviolet;
+    margin-top: 10px;
+    
+  }
+
+  table{
+  width: 100%;}
   
-  /* Set a style for all buttons */
-  .save-btn,#addMem {
-    background-color:blueviolet;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
   
-  /* Add a hover effect for buttons */
-  .save-btn:hover {
-    opacity: 0.8;
-  }
   
   
   
@@ -38,13 +37,13 @@ form {
   
  
   
-  /* Add padding to containers */
+  
   .container {
     padding: 16px;
   }
 
 
-  #main-table {
+  /* #main-table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
@@ -66,7 +65,7 @@ form {
     text-align: left;
     background-color:blueviolet;
     color: white;
-  }
+  } 
   
   .members{
     width: 49%;
@@ -75,7 +74,7 @@ form {
     border: 3px solid #f1f1f1;
     padding: 16px;
   }
- 
+  */
 
   
 

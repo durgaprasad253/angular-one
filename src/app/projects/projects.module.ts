@@ -7,7 +7,14 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 import { FormsModule } from '@angular/forms';
 import { AddMemberComponent } from './add-member/add-member.component';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core'
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -25,7 +32,16 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     ProjectRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    
   ],
   exports:[ProjectComponent]
 })
