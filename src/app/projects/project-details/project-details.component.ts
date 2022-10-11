@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./project-details.component.css']
 })
 export class ProjectDetailsComponent implements OnInit,OnDestroy {
+  displayedColumns:String[]=['imgpath','name','email','phone','edit','delete']
+  list:String[]=['New','Budgeted','In-Progress',"Completed"]
 static addmemid:Project['id']
 static memUpdateFlag:Boolean=false
 static memtoEdit:Members
