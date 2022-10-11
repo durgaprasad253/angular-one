@@ -25,6 +25,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatButtonModule,
     HttpClientModule,
+    MatTableModule,
    
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),

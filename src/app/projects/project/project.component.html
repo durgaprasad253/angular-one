@@ -1,10 +1,8 @@
 
-<div>
-    <h1 id="heading">Open source projects to contribute</h1>
-    
-</div>
+
 <div id="insert">
-<table id="main-table">
+<!-- <table mat-table id="main-table">
+  <caption>open source projects to contribute</caption>
     <thead>
         <tr>
           
@@ -24,13 +22,42 @@
         
       </tr>
     </tbody>
+  </table> -->
+  <table mat-table [dataSource]="projectList">
+    <caption>Open source projects to contribute</caption>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let data"> {{data.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let data"> {{data.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Edit</th>
+      <td mat-cell *matCellDef="let data"> <mat-icon class="icon"(click)="update(data)">edit</mat-icon> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let data"> <mat-icon class="icon" (click)="delete(data)">delete</mat-icon> </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+   
   </table>
   
 </div>
 
 
-<button class="button" (click)="back()">Back</button>
-<button class="button" routerLink="/projects/details">Add Project</button>
+<button mat-button class="button" (click)="back()">Back</button>
+<button mat-button class="button" routerLink="/projects/details">Add Project</button>
 
 
 

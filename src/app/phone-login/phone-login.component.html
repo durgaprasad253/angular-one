@@ -2,13 +2,15 @@
     
   
     <div class="container">
-      <label for="pnumber"><b>Mobile</b></label>
-      <input type="text"  placeholder="Enter Mobile number" [(ngModel)]="phoneNumber" name="pnumber" required>
-  
-      
-  
-      <button id="idsub" (click)="getOtp()" type="submit" >Get OTP</button>
-      
+     
+          <mat-form-field class="full-width">
+            <input matInput type="text" placeholder="Enter Mobile Number" [(ngModel)]="phoneNumber" name="phoneNumber">
+          </mat-form-field>
+
+         
+            <button mat-button id="submitbtn" (click)="getOtp()" >Get Otp</button>
+          
+       
     
     </div>
     <div id="sign-in-button"></div>

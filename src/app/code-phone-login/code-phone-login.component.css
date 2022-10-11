@@ -1,40 +1,25 @@
 #container {
-    width: 25%;
+    width: 21%;
     margin-top: 150px;
     margin-left: 550px;
     border: 3px solid #f1f1f1;
-  }
-  button {
-    background-color:blueviolet;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+    
   }
   
-  /* Add a hover effect for buttons */
-  button:hover {
-    opacity: 0.8;
-  }
   
-  /* Full-width inputs */
  
   
-  /* Set a style for all buttons */
-  
-  
-  /* Add a hover effect for buttons */
- 
-  
-  
+  #submitbtn{
+    color:white;
+    margin-left: 5px;
+    background: blueviolet;
+    margin-top: 16px;
+  }
   
   
   
  
   
-  /* Add padding to containers */
   #container {
     padding: 16px;
   }
